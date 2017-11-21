@@ -1,14 +1,21 @@
 function Airport(){
   this.terminal = [];
+  this.weather = 'clear';
 };
 
 
 Airport.prototype.landPlane = function(plane){
   this.terminal.push(plane);
-  console.log(this.terminal);
   return true;
 };
 
 Airport.prototype.departPlane = function(plane){
+  if(this.weather === 'clear'){
+    for(var i=0; i < this.terminal.length; i++){
+      if(this.terminal[i] === plane){
+        this.terminal.splice(i,1);
+      }
+    }
+  }
   return true;
 };

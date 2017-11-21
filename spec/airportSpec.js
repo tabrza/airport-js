@@ -25,5 +25,19 @@ describe('Airport', function(){
       plane.isFlying = false;
       expect(airport.departPlane(plane)).toBe(true);
     });
+
+    it('confirms plane is no longer in terminal', function(){
+      plane.isFlying = true;
+      airport.landPlane(plane);
+      airport.departPlane(plane);
+      expect(airport.terminal).toEqual([]);
+    });
+    it('does not takeoff if weather is stormy', function(){
+      plane.isFlying = true;
+      airport.landPlane(plane);
+      airport.weather = 'not clear'
+      airport.departPlane(plane);
+      expect(airport.terminal).toEqual([plane]);
+    });
   });
 });
