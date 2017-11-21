@@ -19,4 +19,11 @@ describe('Airport', function(){
       expect(landedPlane).toEqual(plane);
     });
   });
+
+  describe('when plane is taking off', function(){
+    it('instructs a plane to take off', function(){
+      plane.isFlying = false;
+      expect(airport.departPlane(plane)).toBe(true);
+    });
+  });
 });
