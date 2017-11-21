@@ -1,3 +1,4 @@
+const maxCapacity = 2;
 function Airport(){
   this.terminal = [];
   this.weather = 'clear';
@@ -5,7 +6,7 @@ function Airport(){
 
 
 Airport.prototype.landPlane = function(plane){
-  if(this.weather === 'clear'){
+  if(this.weather === 'clear' && this.terminal.length < maxCapacity){
     this.terminal.push(plane);
     return true;
   }
