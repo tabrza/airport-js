@@ -11,5 +11,12 @@ describe('Airport', function(){
       plane.isFlying = true;
       expect(airport.landPlane(plane)).toBe(true);
     });
+
+    it('confirms plane is in terminal', function(){
+      plane.isFlying = true;
+      airport.landPlane(plane);
+      var landedPlane = airport.terminal[airport.terminal.length - 1];
+      expect(landedPlane).toEqual(plane);
+    });
   });
 });
