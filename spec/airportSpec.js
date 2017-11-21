@@ -18,6 +18,14 @@ describe('Airport', function(){
       var landedPlane = airport.terminal[airport.terminal.length - 1];
       expect(landedPlane).toEqual(plane);
     });
+
+    it('does not land plane if not clear', function(){
+      plane.isFlying = true;
+      airport.weather = 'not clear';
+      airport.landPlane(plane);
+      var landedPlane = airport.terminal[airport.terminal.length - 1];
+      expect(landedPlane).toBe(undefined);
+    });
   });
 
   describe('when plane is taking off', function(){
@@ -32,6 +40,7 @@ describe('Airport', function(){
       airport.departPlane(plane);
       expect(airport.terminal).toEqual([]);
     });
+
     it('does not takeoff if weather is stormy', function(){
       plane.isFlying = true;
       airport.landPlane(plane);
