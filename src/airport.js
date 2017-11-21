@@ -8,3 +8,7 @@ Airport.prototype.landPlane = function(plane){
   console.log(this.terminal);
   return true;
 };
+
+Airport.prototype.departPlane = function(plane){
+  return true;
+};
