@@ -5,8 +5,10 @@ function Airport(){
 
 
 Airport.prototype.landPlane = function(plane){
-  this.terminal.push(plane);
-  return true;
+  if(this.weather === 'clear'){
+    this.terminal.push(plane);
+    return true;
+  }
 };
 
 Airport.prototype.departPlane = function(plane){
@@ -16,6 +18,6 @@ Airport.prototype.departPlane = function(plane){
         this.terminal.splice(i,1);
       }
     }
+    return true;
   }
-  return true;
 };
