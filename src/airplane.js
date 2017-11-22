@@ -3,9 +3,9 @@ function Plane(){
 };
 
 Plane.prototype.landed = function(){
-  return plane.isFlying = false;
+  return this.isFlying = false;
 }
 
 Plane.prototype.takeOff = function(){
-  return plane.isFlying = true;
+  return this.isFlying = true;
 }
