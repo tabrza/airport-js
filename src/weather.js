@@ -1,3 +1,6 @@
 function Weather(){
-  this.isClear = true;
-};
+}
+
+Weather.prototype.isStormy = function(){
+  Math.random() > 0.5 ? true : false;
+}
